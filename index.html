@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+     <script>
+        //It's a game where we have a `list` of questions (around 15).
+        var kbc = {
+            'current_question_no': 0,
+            'print_question': function (n) { 
+                    console.log(kbc.current_question_no+n);
+                    console.log(kbc.question_list[n].text);
+                    console.log(kbc.question_list[n].options);
+                    // console.log(kbc.select_answer);
+            }, //This function will print the next (current+1) question on the console.
+            'select_answer': function(answer) {
+                for(i=0;i<=4;i++){
+               var ans=kbc.question_list[i].correct_answer;
+                if(answer==ans){
+                    console.log("correct answer",kbc.print_question(i));
+                }
+                else{
+                    console.log("you lost!!!!!");
+                }
+            }
+                
+            
+            }, //This function will check whether the selected answer for the current question is correct or not.
+            //If correct, increment the counter (That means, move on to the next question),
+            //If incorrect. then show message saying you have lost and end the game.
+            question_list: [
+                {
+                    'text': "Which subject are we studying?",
+                    'options': ["HTML", "CSS", "Javascript", "React"],
+                    'correct_answer': "Javascript",
+                    'price_amount': 1000
+                },
+                {
+                    'text': "Which subject are we studying previous?",
+                    'options': ["HTML", "CSS", "Javascript", "React"],
+                    'correct_answer': "CSS",
+                    'price_amount': 2000
+                },
+                {
+                    'text': "Which subject are we  not studying?",
+                    'options': ["HTML", "football", "Javascript", "React"],
+                    'correct_answer': "football",
+                    'price_amount': 3000
+                },
+                {
+                    'text': "What are we ?",
+                    'options': ["HTML", "CSS", "Javascript", "programer"],
+                    'correct_answer': "programer",
+                    'price_amount': 4000
+                },
+                {
+                    'text': "Which company is this?",
+                    'options': ["geekster", "CSS", "Javascript", "React"],
+                    'correct_answer': "geekster",
+                    'price_amount': 5000
+                },
+
+            ],
+            'winning_prize': function(){
+                let prize=0;
+                for(i=0;i<=4;i++){
+                     prize=kbc.question_list[0].price_amount+prize;
+                console.log(prize);
+                }
+            }
+        };
+            console.log(kbc.print_question(0));
+            console.log(kbc.select_answer("Javascript"));
+            console.log(kbc.select_answer("CSS"));
+            console.log(kbc.select_answer("football",));
+            console.log(kbc.select_answer("programer"));
+            console.log(kbc.select_answer("geekster"));
+           
+            
+
+    </script>
+</body>
+</html>
