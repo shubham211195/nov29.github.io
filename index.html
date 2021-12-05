@@ -9,24 +9,53 @@
 <body>
     
      <script>
+         var prize=0;
         //It's a game where we have a `list` of questions (around 15).
         var kbc = {
             'current_question_no': 0,
             'print_question': function (n) { 
-                    console.log(kbc.current_question_no+n);
+                    console.log(kbc.current_question_no+(n+1));
                     console.log(kbc.question_list[n].text);
                     console.log(kbc.question_list[n].options);
                     // console.log(kbc.select_answer);
             }, //This function will print the next (current+1) question on the console.
-            'select_answer': function(answer) {
+            'select_answer': function(answer,answer2,answer3,answer4,answer5) {
                 for(i=0;i<=4;i++){
                var ans=kbc.question_list[i].correct_answer;
-                if(answer==ans){
-                    console.log("correct answer",kbc.print_question(i));
+               answer=prompt("enter answer for question");
+                if(ans==answer){    
+                    console.log("correct answer:"+answer);
+                    kbc.print_question(i+1);
+                    prize=kbc.question_list[i].price_amount;
+                    console.log("current amount:"+prize);
+                }
+                else if(ans==answer2){
+                    console.log("correct answer:"+answer2);
+                    kbc.print_question(i+1);
+                    prize=kbc.question_list[i].price_amount;
+                    console.log("current amount:"+prize);
+                }
+                else if(ans==answer3){
+                    console.log("correct answer:"+answer3);
+                    kbc.print_question(i+1);
+                    prize=kbc.question_list[i].price_amount;
+                    console.log("current amount:"+prize);
+                }
+                else if(ans==answer4){
+                    console.log("correct answer:"+answer4);
+                    kbc.print_question(i+1);
+                    prize=kbc.question_list[i].price_amount;
+                    console.log("current amount:"+prize);
+                }
+                else if(ans==answer5){
+                    console.log("correct answer:"+answer5);
+                    prize=kbc.question_list[i].price_amount;
+                    console.log("you WOn:"+prize)
                 }
                 else{
                     console.log("you lost!!!!!");
                 }
+                
             }
                 
             
@@ -65,21 +94,11 @@
                     'price_amount': 5000
                 },
 
-            ],
-            'winning_prize': function(){
-                let prize=0;
-                for(i=0;i<=4;i++){
-                     prize=kbc.question_list[0].price_amount+prize;
-                console.log(prize);
-                }
-            }
+            ]
         };
-            console.log(kbc.print_question(0));
-            console.log(kbc.select_answer("Javascript"));
-            console.log(kbc.select_answer("CSS"));
-            console.log(kbc.select_answer("football",));
-            console.log(kbc.select_answer("programer"));
-            console.log(kbc.select_answer("geekster"));
+            
+            kbc.print_question(0);
+            kbc.select_answer("","","","","");
            
             
 
